@@ -80,38 +80,159 @@ const menu = [
       "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
     desc: `Red bean paste dessert, serving with honey.`,
   },
+  {
+    id: 10,
+    title: "Carbonara",
+    category: "Italy",
+    price: 9.99,
+    img:
+      "https://images.unsplash.com/photo-1633337474564-1d9478ca4e2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+    desc: `Italian pasta dish from Rome made with eggs, hard cheese, cured pork, and black pepper.`,
+  },
+  {
+    id: 11,
+    title: "Pepperoni Pizza",
+    category: "Italy",
+    price: 13.99,
+    img:
+      "https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
+    desc: `Spicy salami made from cured pork and beef seasoned with paprika or other chili pepper.[`,
+  },
+  {
+    id: 12,
+    title: "Risotto",
+    category: "Italy",
+    price: 15.99,
+    img:
+      "https://images.unsplash.com/photo-1595908129746-57ca1a63dd4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    desc: ` Northern Italian rice dish cooked with broth until it reaches a creamy consistency. `,
+  },
+  {
+    id: 13,
+    title: "Ratatouille",
+    category: "French",
+    price: 25.99,
+    img:
+      "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80",
+    desc: `French Provençal dish of stewed vegetables which originated in Nice.`,
+  },
+  {
+    id: 14,
+    title: "Bouillabaisse",
+    category: "French",
+    price: 30.99,
+    img:
+      "https://assets.epicurious.com/photos/61f423f29c9591f7270e22c6/1:1/w_1920,c_limit/Bouillabaise_RECIPE_20220125_1776_V1_final.jpg",
+    desc: `Provençal fish stew originating in the port city of Marseille.`,
+  },
+  {
+    id: 15,
+    title: "Hamburger",
+    category: "American",
+    price: 13.99,
+    img:
+      "https://images.unsplash.com/photo-1600688640154-9619e002df30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80",
+    desc: `Consisting of fillings placed inside a sliced bun or bread roll.`,
+  },
+  {
+    id: 16,
+    title: "Hot-Dog",
+    category: "American",
+    price: 5.99,
+    img:
+      "https://images.unsplash.com/photo-1624772404867-08060beaaa1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    desc: `Grilled or steamed sausage served in the slit of a partially sliced bun..`,
+  },
+  {
+    id: 17,
+    title: "Apple Pie",
+    category: "American",
+    price: 15.99,
+    img:
+      "https://images.unsplash.com/photo-1535920527002-b35e96722eb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    desc: `Pie in which the principal filling ingredient is apples.`,
+  },
+
+
+
+
+
+
+
 ];
 
 
 const btn = document.querySelector("#btn")
 const single = document.querySelector("#single")
 const title = document.querySelector("#title")
-const allMenu = document.querySelector("#all")
+const meals = document.querySelector("#menu-items")
 
 
 
+/////////////////////////////////////
+window.addEventListener("DOMContentLoaded", function () {
 
-function addBtn() {
-  let btnDOM = document.createElement("button")
-  btnDOM.innerHTML = `<button class="btn btn-item" id="all">All</button>
-  <button class="btn btn-item">Korea</button>
-  <button class="btn btn-item">Japan</button>
-  <button class="btn btn-item">China</button>`
-  btn.append(btnDOM)
+});
+displayMenuItems(menu);
+displayMenuButtons();
+
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map(function (item) {
+    return `
+    <div class="menu-items col-6 row menu-text btn-container">
+      <div class="item-info row">
+        <div>
+        <img class="photo" src=${item.img} alt="">
+        <h3 class="menu-title">  ${item.title} <span>$${item.price}</span>
+          </h3>
+          
+        </div>
+        <p class="menu-info">
+         ${item.desc}
+        </p>
+      </div>
+    </div>`;
+  })
+  displayMenu = displayMenu.join("");
+
+  meals.innerHTML = displayMenu;
+
 }
-addBtn();
 
-allMenu.addEventListener("click", function allMenu() {
-  menu.forEach(menu =>
-    optionList.add(
-      new Option(menu.id, menu.title, menu.category, menu.price, menu.img, menu.desc)
-    )
+function displayMenuButtons() {
+  const categories = menu.reduce(
+    function (values, item) {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["All"]
   );
-})
-// id: 1,
-//     title: "Tteokbokki",
-//     category: "Korea",
-//     price: 10.99,
-//     img:
-//       "https://twoplaidaprons.com/wp-content/uploads/2020/09/tteokbokki-top-down-view-of-tteokbokki-in-a-bowl-500x500.jpg",
-//     desc: `Spicy rice cakes, serving with fish cake.`,
+  const categoryBtns = categories
+    .map(function (category) {
+      return `<button class=" btn-item filter-btn btn btn-item " data-id=${category}>
+      ${category}</button>`;
+    })
+    .join("");
+
+  btn.innerHTML = categoryBtns;
+  const filterBtns = btn.querySelectorAll('.filter-btn');
+
+
+  filterBtns.forEach(function (select) {
+    select.addEventListener("click", function (e) {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "All") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
+}
