@@ -81,3 +81,37 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
+
+
+const btn = document.querySelector("#btn")
+const single = document.querySelector("#single")
+const title = document.querySelector("#title")
+const allMenu = document.querySelector("#all")
+
+
+
+
+function addBtn() {
+  let btnDOM = document.createElement("button")
+  btnDOM.innerHTML = `<button class="btn btn-item" id="all">All</button>
+  <button class="btn btn-item">Korea</button>
+  <button class="btn btn-item">Japan</button>
+  <button class="btn btn-item">China</button>`
+  btn.append(btnDOM)
+}
+addBtn();
+
+allMenu.addEventListener("click", function allMenu() {
+  menu.forEach(menu =>
+    optionList.add(
+      new Option(menu.id, menu.title, menu.category, menu.price, menu.img, menu.desc)
+    )
+  );
+})
+// id: 1,
+//     title: "Tteokbokki",
+//     category: "Korea",
+//     price: 10.99,
+//     img:
+//       "https://twoplaidaprons.com/wp-content/uploads/2020/09/tteokbokki-top-down-view-of-tteokbokki-in-a-bowl-500x500.jpg",
+//     desc: `Spicy rice cakes, serving with fish cake.`,
