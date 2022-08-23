@@ -152,6 +152,33 @@ const menu = [
       "https://images.unsplash.com/photo-1535920527002-b35e96722eb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     desc: `Pie in which the principal filling ingredient is apples.`,
   },
+  {
+    id: 18,
+    title: "Tacos",
+    category: "Mexican",
+    price: 18.50,
+    img:
+      "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80",
+    desc: `Consisting of a small hand-sized corn- or wheat-based tortilla topped with a filling. `,
+  },
+  {
+    id: 19,
+    title: "Burritos",
+    category: "Mexican",
+    price: 14.80,
+    img:
+      "https://images.unsplash.com/photo-1629385908041-f148b9024d22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    desc: `Flour tortilla wrapped into a sealed cylindrical shape around various ingredients. `,
+  },
+  {
+    id: 20,
+    title: "Enchiladas",
+    category: "Mexican",
+    price: 22.99,
+    img:
+      "https://images.unsplash.com/photo-1534352956036-cd81e27dd615?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=401&q=80",
+    desc: ` Corn tortilla rolled around a filling and covered with a savory sauce.`,
+  },
 
 
 
